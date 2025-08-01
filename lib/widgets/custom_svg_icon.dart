@@ -83,7 +83,9 @@ class VuesaxIcon extends StatefulWidget {
     this.loadingWidget,
     this.useLocalAssets,
   })  : assert(
-          iconId != null || assetPath != null || (variant != null && iconName != null),
+          iconId != null ||
+              assetPath != null ||
+              (variant != null && iconName != null),
           'Either iconId, assetPath, or both variant and iconName must be provided',
         ),
         super(key: key);
@@ -145,8 +147,10 @@ class _VuesaxIconState extends State<VuesaxIcon> {
   @override
   Widget build(BuildContext context) {
     // Use size as default for width/height if not specified
-    final double? finalWidth = widget.width ?? widget.size ?? VuesaxConfig.defaultSize;
-    final double? finalHeight = widget.height ?? widget.size ?? VuesaxConfig.defaultSize;
+    final double? finalWidth =
+        widget.width ?? widget.size ?? VuesaxConfig.defaultSize;
+    final double? finalHeight =
+        widget.height ?? widget.size ?? VuesaxConfig.defaultSize;
     final Color? finalColor = widget.color ?? VuesaxConfig.defaultColor;
 
     // If assetPath is provided, use local asset
@@ -185,10 +189,12 @@ class _VuesaxIconState extends State<VuesaxIcon> {
 
   Widget _buildLocalSvgFromIconId(double? width, double? height, Color? color) {
     // Convert iconId to local asset path using config
-    final localAssetPath = '${VuesaxConfig.localAssetPath}/${_resolvedIconId}.svg';
+    final localAssetPath =
+        '${VuesaxConfig.localAssetPath}/${_resolvedIconId}.svg';
 
     if (VuesaxConfig.enableDebugLogging) {
-      debugPrint('VuesaxIcon: Loading local asset from iconId: $localAssetPath');
+      debugPrint(
+          'VuesaxIcon: Loading local asset from iconId: $localAssetPath');
     }
 
     try {
@@ -207,7 +213,8 @@ class _VuesaxIconState extends State<VuesaxIcon> {
       );
     } catch (e) {
       if (VuesaxConfig.enableDebugLogging) {
-        debugPrint('VuesaxIcon: Local asset failed, falling back to error widget: $e');
+        debugPrint(
+            'VuesaxIcon: Local asset failed, falling back to error widget: $e');
       }
       return _buildErrorWidget(width, height);
     }
@@ -272,14 +279,15 @@ class _VuesaxIconState extends State<VuesaxIcon> {
 
         if (snapshot.hasError || !snapshot.hasData) {
           if (VuesaxConfig.enableDebugLogging) {
-            debugPrint('VuesaxIcon: CDN failed, trying fallback: ${snapshot.error}');
+            debugPrint(
+                'VuesaxIcon: CDN failed, trying fallback: ${snapshot.error}');
           }
-          
+
           // Try to fallback to local asset if network fails and fallback is enabled
           if (VuesaxConfig.enableLocalFallback && _resolvedIconId != null) {
             return _buildLocalSvgFromIconId(width, height, color);
           }
-          
+
           // For CDN-only packages, show a user-friendly error or fallback icon
           return _buildErrorWidget(width, height);
         }
@@ -354,8 +362,8 @@ class _VuesaxIconState extends State<VuesaxIcon> {
 
     // For CDN-only packages, show a simple fallback
     // Note: Fallback icon loading is disabled to avoid infinite loops in pure CDN mode
-    if (VuesaxConfig.enableLocalFallback && 
-        VuesaxConfig.fallbackIconName.isNotEmpty && 
+    if (VuesaxConfig.enableLocalFallback &&
+        VuesaxConfig.fallbackIconName.isNotEmpty &&
         _resolvedIconId != VuesaxConfig.fallbackIconName) {
       final fallbackVariant = widget.variant ?? VuesaxConfig.defaultVariant;
       return VuesaxIcon(

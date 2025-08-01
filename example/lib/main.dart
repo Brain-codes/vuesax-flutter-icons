@@ -34,10 +34,10 @@ class _IconDemoPageState extends State<IconDemoPage> {
   String _selectedVariant = VuesaxConfig.defaultVariant;
   bool _useNetworkIcons = VuesaxConfig.preferCDN;
   bool _debugMode = VuesaxConfig.enableDebugLogging;
-  
+
   final Map<String, String> _variantExamples = {
     'bold': 'activity',
-    'outline': 'activity', 
+    'outline': 'activity',
     'linear': 'activity',
     'bulk': 'activity',
     'twotone': 'activity',
@@ -109,9 +109,9 @@ class _IconDemoPageState extends State<IconDemoPage> {
                 ),
               ),
             ),
-            
+
             const SizedBox(height: 16.0),
-            
+
             // Icon source toggle
             Card(
               child: Padding(
@@ -135,14 +135,16 @@ class _IconDemoPageState extends State<IconDemoPage> {
                           },
                         ),
                         const SizedBox(width: 8.0),
-                        Text(_useNetworkIcons ? 'CDN Icons (Network)' : 'Local Assets'),
+                        Text(_useNetworkIcons
+                            ? 'CDN Icons (Network)'
+                            : 'Local Assets'),
                       ],
                     ),
                     const SizedBox(height: 8.0),
                     Text(
-                      _useNetworkIcons 
-                        ? '🌐 Loading icons from GitHub CDN with caching'
-                        : '📱 Using bundled local assets',
+                      _useNetworkIcons
+                          ? '🌐 Loading icons from GitHub CDN with caching'
+                          : '📱 Using bundled local assets',
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
                     const SizedBox(height: 8.0),
@@ -163,9 +165,9 @@ class _IconDemoPageState extends State<IconDemoPage> {
                 ),
               ),
             ),
-            
+
             const SizedBox(height: 16.0),
-            
+
             // Main showcase icon
             Center(
               child: Container(
@@ -184,9 +186,9 @@ class _IconDemoPageState extends State<IconDemoPage> {
                 ),
               ),
             ),
-            
+
             const SizedBox(height: 16.0),
-            
+
             // Current CDN URL display
             Container(
               padding: const EdgeInsets.all(12.0),
@@ -200,12 +202,13 @@ class _IconDemoPageState extends State<IconDemoPage> {
                   Text(
                     'Current URL:',
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
+                          fontWeight: FontWeight.bold,
+                        ),
                   ),
                   const SizedBox(height: 4.0),
                   Text(
-                    VuesaxConfig.buildCDNUrl(_selectedVariant, _variantExamples[_selectedVariant]!),
+                    VuesaxConfig.buildCDNUrl(
+                        _selectedVariant, _variantExamples[_selectedVariant]!),
                     style: TextStyle(
                       fontFamily: 'monospace',
                       fontSize: 11,
@@ -215,9 +218,9 @@ class _IconDemoPageState extends State<IconDemoPage> {
                 ],
               ),
             ),
-            
+
             const SizedBox(height: 32.0),
-            
+
             // Controls
             Card(
               child: Padding(
@@ -230,7 +233,7 @@ class _IconDemoPageState extends State<IconDemoPage> {
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     const SizedBox(height: 16.0),
-                    
+
                     // Size slider
                     Text('Size: ${_iconSize.round()}px'),
                     Slider(
@@ -244,9 +247,9 @@ class _IconDemoPageState extends State<IconDemoPage> {
                         });
                       },
                     ),
-                    
+
                     const SizedBox(height: 16.0),
-                    
+
                     // Variant selector
                     Text('Variant:'),
                     const SizedBox(height: 8.0),
@@ -266,9 +269,9 @@ class _IconDemoPageState extends State<IconDemoPage> {
                         );
                       }).toList(),
                     ),
-                    
+
                     const SizedBox(height: 16.0),
-                    
+
                     // Color selector
                     Text('Color:'),
                     const SizedBox(height: 8.0),
@@ -299,20 +302,20 @@ class _IconDemoPageState extends State<IconDemoPage> {
                 ),
               ),
             ),
-            
+
             const SizedBox(height: 24.0),
-            
+
             // Icon showcase grid
             Text(
               'Icon Examples',
               style: Theme.of(context).textTheme.headlineSmall,
             ),
             const SizedBox(height: 16.0),
-            
+
             _buildIconShowcase(),
-            
+
             const SizedBox(height: 24.0),
-            
+
             // Usage examples
             Card(
               child: Padding(
@@ -380,13 +383,19 @@ class _IconDemoPageState extends State<IconDemoPage> {
       ),
     );
   }
-  
+
   Widget _buildIconShowcase() {
     final showcaseIcons = [
-      'activity', 'home', 'user', 'heart',
-      'search-normal', 'setting', 'calendar', 'message',
+      'activity',
+      'home',
+      'user',
+      'heart',
+      'search-normal',
+      'setting',
+      'calendar',
+      'message',
     ];
-    
+
     return GridView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),

@@ -28,7 +28,7 @@ dev_dependencies:
 flutter:
   # No assets declared = No bundle size impact!
   # Icons are loaded from CDN: https://cdn.jsdelivr.net/gh/brain-codes/vuesax-flutter-icons@main/assets/Svg/All/{variant}/{icon}.svg
-  
+
   # Optional: Keep only a few essential fallback icons (uncomment if needed)
   # assets:
   #   - assets/fallback/home.svg
