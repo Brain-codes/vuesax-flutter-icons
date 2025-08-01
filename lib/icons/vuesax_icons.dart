@@ -1,14 +1,14 @@
-/// Vuesax Icon Constants - Type-safe icon identifiers
+/// Legacy Vuesax Icon Constants - Type-safe icon identifiers
 ///
 /// Provides autocomplete-friendly constants for all Vuesax icons.
 /// Use these constants with VuesaxIcon widget for type safety and IDE support.
 ///
 /// Example:
 /// ```dart
-/// VuesaxIcon(iconId: VuesaxIcons.linearHome)
-/// VuesaxIcon(iconId: VuesaxIcons.boldSearch)
+/// VuesaxIcon(iconId: LegacyVuesaxIcons.linearHome)
+/// VuesaxIcon(iconId: LegacyVuesaxIcons.boldSearch)
 /// ```
-class VuesaxIcons {
+class LegacyVuesaxIcons {
   // Bold Icons
   static const String boldActivity = 'bold/activity';
   static const String boldHome = 'bold/home';

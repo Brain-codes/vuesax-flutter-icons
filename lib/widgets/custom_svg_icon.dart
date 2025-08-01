@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart' as http;
 import '../config/vuesax_config.dart';
+import '../constants/vuesax_variants.dart';
 
 /// A high-performance SVG icon widget for Vuesax icons
 ///
@@ -18,7 +19,11 @@ class VuesaxIcon extends StatefulWidget {
 
   /// Icon variant (bold, outline, linear, bulk, twotone, broken)
   /// If provided with iconName, will be combined to create iconId
+  /// @deprecated Use variantEnum instead for better type safety
   final String? variant;
+
+  /// Type-safe icon variant enum (preferred over variant string)
+  final VuesaxVariant? variantEnum;
 
   /// Icon name (e.g., 'home', 'user', 'activity')
   /// Used with variant to create iconId
@@ -68,6 +73,7 @@ class VuesaxIcon extends StatefulWidget {
     this.iconId,
     this.assetPath,
     this.variant,
+    this.variantEnum,
     this.iconName,
     this.size,
     this.width,
@@ -85,14 +91,57 @@ class VuesaxIcon extends StatefulWidget {
   })  : assert(
           iconId != null ||
               assetPath != null ||
-              (variant != null && iconName != null),
-          'Either iconId, assetPath, or both variant and iconName must be provided',
+              (variant != null && iconName != null) ||
+              (variantEnum != null && iconName != null),
+          'Either iconId, assetPath, or both variant/variantEnum and iconName must be provided',
         ),
         super(key: key);
 
-  /// Create a VuesaxIcon from a specific variant and icon name
+  /// Create a VuesaxIcon using type-safe enum (RECOMMENDED)
+  ///
+  /// Example: VuesaxIcon.icon(VuesaxVariant.linear, VuesaxIcons.home)
+  factory VuesaxIcon.icon(
+    VuesaxVariant variant,
+    String iconName, {
+    double? size,
+    double? width,
+    double? height,
+    Color? color,
+    BoxFit fit = BoxFit.contain,
+    Alignment alignment = Alignment.center,
+    String? semanticsLabel,
+    bool matchTextDirection = false,
+    bool allowDrawingOutsideViewBox = false,
+    BlendMode colorBlendMode = BlendMode.srcIn,
+    Widget? errorWidget,
+    Widget? loadingWidget,
+    bool? useLocalAssets,
+    Key? key,
+  }) {
+    return VuesaxIcon(
+      key: key,
+      variantEnum: variant,
+      iconName: iconName,
+      size: size,
+      width: width,
+      height: height,
+      color: color,
+      fit: fit,
+      alignment: alignment,
+      semanticsLabel: semanticsLabel,
+      matchTextDirection: matchTextDirection,
+      allowDrawingOutsideViewBox: allowDrawingOutsideViewBox,
+      colorBlendMode: colorBlendMode,
+      errorWidget: errorWidget,
+      loadingWidget: loadingWidget,
+      useLocalAssets: useLocalAssets,
+    );
+  }
+
+  /// Create a VuesaxIcon from a specific variant and icon name (legacy)
   ///
   /// Example: VuesaxIcon.variant('linear', 'home')
+  /// @deprecated Use VuesaxIcon.icon() with VuesaxVariant enum instead
   factory VuesaxIcon.variant(
     String variant,
     String iconName, {
@@ -134,10 +183,23 @@ class _VuesaxIconState extends State<VuesaxIcon> {
 
   String? get _resolvedIconId {
     if (widget.iconId != null) return widget.iconId;
+    
+    // Handle enum variant (preferred)
+    if (widget.variantEnum != null && widget.iconName != null) {
+      return VuesaxConfig.getIconId(widget.variantEnum!.value, widget.iconName!);
+    }
+    
+    // Handle string variant (legacy)
     if (widget.variant != null && widget.iconName != null) {
       return VuesaxConfig.getIconId(widget.variant!, widget.iconName!);
     }
+    
     return null;
+  }
+
+  /// Get the resolved variant as a string for internal use
+  String? get _resolvedVariant {
+    return widget.variantEnum?.value ?? widget.variant;
   }
 
   bool get _shouldUseLocalAssets {
@@ -365,7 +427,7 @@ class _VuesaxIconState extends State<VuesaxIcon> {
     if (VuesaxConfig.enableLocalFallback &&
         VuesaxConfig.fallbackIconName.isNotEmpty &&
         _resolvedIconId != VuesaxConfig.fallbackIconName) {
-      final fallbackVariant = widget.variant ?? VuesaxConfig.defaultVariant;
+      final fallbackVariant = _resolvedVariant ?? VuesaxConfig.defaultVariant;
       return VuesaxIcon(
         variant: fallbackVariant,
         iconName: VuesaxConfig.fallbackIconName,

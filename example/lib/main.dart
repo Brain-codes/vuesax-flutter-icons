@@ -31,17 +31,17 @@ class IconDemoPage extends StatefulWidget {
 class _IconDemoPageState extends State<IconDemoPage> {
   double _iconSize = VuesaxConfig.defaultSize;
   Color _iconColor = Colors.blue;
-  String _selectedVariant = VuesaxConfig.defaultVariant;
+  VuesaxVariant _selectedVariant = VuesaxVariant.linear;
   bool _useNetworkIcons = VuesaxConfig.preferCDN;
   bool _debugMode = VuesaxConfig.enableDebugLogging;
 
-  final Map<String, String> _variantExamples = {
-    'bold': 'activity',
-    'outline': 'activity',
-    'linear': 'activity',
-    'bulk': 'activity',
-    'twotone': 'activity',
-    'broken': 'activity',
+  final Map<VuesaxVariant, String> _variantExamples = {
+    VuesaxVariant.bold: VuesaxIcons.activity,
+    VuesaxVariant.outline: VuesaxIcons.activity,
+    VuesaxVariant.linear: VuesaxIcons.activity,
+    VuesaxVariant.bulk: VuesaxIcons.activity,
+    VuesaxVariant.twotone: VuesaxIcons.activity,
+    VuesaxVariant.broken: VuesaxIcons.activity,
   };
 
   final List<Color> _colorOptions = [
@@ -176,13 +176,13 @@ class _IconDemoPageState extends State<IconDemoPage> {
                   border: Border.all(color: Colors.grey.shade300),
                   borderRadius: BorderRadius.circular(16.0),
                 ),
-                child: VuesaxIcon(
-                  variant: _selectedVariant,
-                  iconName: _variantExamples[_selectedVariant]!,
+                child: VuesaxIcon.icon(
+                  _selectedVariant,
+                  _variantExamples[_selectedVariant]!,
                   size: _iconSize,
                   color: _iconColor,
                   useLocalAssets: !_useNetworkIcons,
-                  semanticsLabel: 'Activity icon $_selectedVariant variant',
+                  key: ValueKey('icon_${_selectedVariant.value}_${_variantExamples[_selectedVariant]}'),
                 ),
               ),
             ),
@@ -208,7 +208,7 @@ class _IconDemoPageState extends State<IconDemoPage> {
                   const SizedBox(height: 4.0),
                   Text(
                     VuesaxConfig.buildCDNUrl(
-                        _selectedVariant, _variantExamples[_selectedVariant]!),
+                        _selectedVariant.value, _variantExamples[_selectedVariant]!),
                     style: TextStyle(
                       fontFamily: 'monospace',
                       fontSize: 11,
@@ -255,9 +255,9 @@ class _IconDemoPageState extends State<IconDemoPage> {
                     const SizedBox(height: 8.0),
                     Wrap(
                       spacing: 8.0,
-                      children: VuesaxConfig.availableVariants.map((variant) {
+                      children: VuesaxVariant.values.map((variant) {
                         return ChoiceChip(
-                          label: Text(variant.toUpperCase()),
+                          label: Text(variant.value.toUpperCase()),
                           selected: _selectedVariant == variant,
                           onSelected: (selected) {
                             if (selected) {
@@ -338,17 +338,22 @@ class _IconDemoPageState extends State<IconDemoPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '// New config-based approach\n'
+                            '// NEW: Type-safe API (Recommended)\n'
+                            'VuesaxIcon.icon(\n'
+                            '  VuesaxVariant.linear,\n'
+                            '  VuesaxIcons.home,\n'
+                            '  size: 32,\n'
+                            '  color: Colors.blue,\n'
+                            ')\n\n'
+                            '// Legacy: String-based\n'
                             'VuesaxIcon(\n'
                             '  variant: "linear",\n'
                             '  iconName: "home",\n'
                             '  size: 32,\n'
-                            '  color: Colors.blue,\n'
                             ')\n\n'
-                            '// Type-safe constants\n'
+                            '// Using iconId (legacy)\n'
                             'VuesaxIcon(\n'
-                            '  iconId: VuesaxIcons.boldActivity,\n'
-                            '  useLocalAssets: false,\n'
+                            '  iconId: LegacyVuesaxIcons.boldActivity,\n'
                             ')',
                             style: TextStyle(
                               fontFamily: 'Courier',
@@ -358,13 +363,14 @@ class _IconDemoPageState extends State<IconDemoPage> {
                           ),
                           const SizedBox(height: 8.0),
                           Text(
-                            '// Factory constructors\n'
-                            'VuesaxIcon.variant("linear", "home")\n'
-                            'VuesaxIcon.asset("assets/custom.svg")\n\n'
-                            '// Edit VuesaxConfig for global settings:\n'
-                            '// - CDN URLs, default variant, fallbacks\n'
-                            '// - Debug logging, cache settings\n'
-                            '// - Local asset preferences',
+                            '// Type-safe variants:\n'
+                            '${VuesaxVariant.values.map((v) => 'VuesaxVariant.${v.name}').join(', ')}\n\n'
+                            '// Popular icons:\n'
+                            'VuesaxIcons.home, VuesaxIcons.user, VuesaxIcons.heart\n'
+                            'VuesaxIcons.search, VuesaxIcons.settings, VuesaxIcons.notification\n\n'
+                            '// CDN Configuration in VuesaxConfig:\n'
+                            '// - githubUsername, repositoryName, branch\n'
+                            '// - Enable/disable CDN, debug logging, caching',
                             style: TextStyle(
                               fontFamily: 'Courier',
                               fontSize: 12,

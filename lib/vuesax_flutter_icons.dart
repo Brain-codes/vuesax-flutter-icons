@@ -11,8 +11,12 @@ export 'widgets/custom_svg_icon.dart';
 // Configuration
 export 'config/vuesax_config.dart';
 
-// Type-safe constants
-export 'icons/vuesax_icons.dart';
+// Type-safe constants (NEW - Recommended)
+export 'constants/vuesax_variants.dart';
+export 'constants/vuesax_icons.dart';
+
+// Legacy support (backward compatibility)
+export 'icons/vuesax_icons.dart' show LegacyVuesaxIcons;
 
 // All variant icons (legacy support)
 export 'icons/crypto_icons.dart';
