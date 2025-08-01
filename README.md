@@ -1,32 +1,33 @@
 # Vuesax Flutter Icons
 
-A **ultra-lightweight** Flutter package providing beautiful SVG icons from the Vuesax design system. Features **CDN-based loading** with zero bundle size impact - your app stays fast and small!
+A **revolutionary zero-bundle** Flutter package providing beautiful SVG icons from the Vuesax design system. Features **CDN-based loading** with **ZERO bundle size impact** - your app stays lightning fast and ultra-lightweight!
 
 [![pub package](https://img.shields.io/pub/v/vuesax_flutter_icons.svg)](https://pub.dev/packages/vuesax_flutter_icons)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## 🎯 **Why Choose This Package?**
+## 🚨 **ZERO BUNDLE SIZE - REVOLUTIONARY ARCHITECTURE**
 
-### 📦 **Massive Bundle Size Savings**
+### 📦 **Bundle Size Comparison**
 
-- **Traditional icon packages**: +13.9MB added to your app
-- **Vuesax Flutter Icons**: +50KB only (99.6% smaller!)
-- **Icons loaded on-demand** from fast global CDN
-- **Perfect for apps** that want to stay lightweight
+| Package Type | Bundle Size | Assets | Loading |
+|-------------|-------------|--------|---------|
+| **Traditional Icon Package** | +13.9MB | All bundled | Instant |
+| **🚀 Vuesax Flutter Icons** | **+50KB** | **Zero bundled** | ~100ms |
+| **📊 Savings** | **99.6%** | **13.9MB saved** | Acceptable |
 
-### ⚡ **Performance Benefits**
+### ⚡ **How We Achieved Zero Bundle Size**
 
-- **Faster app startup** - no heavy assets to load
-- **Lower memory usage** - only loaded icons cached
-- **Global CDN delivery** via jsDelivr for optimal speed
-- **Smart caching** prevents duplicate network requests
+- 🎯 **Smart Architecture**: Assets stored in separate branch, code in main branch
+- 🌐 **CDN-First Loading**: Icons load from global CDN (jsDelivr)
+- 📦 **No Assets Bundled**: Your APK/IPA stays ultra-lightweight
+- 🚀 **On-Demand**: Load only icons you actually use
 
 ## ✨ Features
 
 - 🌐 **CDN-hosted icons** with automatic caching
-- 📦 **Zero bundle size impact** - only ~50KB package size vs 13.9MB of assets
-- 🎨 **6 icon variants**: Bold, Outline, Linear, Bulk, Twotone, Broken
-- 🎯 **Type-safe constants** with IDE autocomplete
+- 📦 **TRUE ZERO bundle impact** - only ~50KB package size vs 13.9MB of assets
+- 🎨 **6 icon variants**: Bold, Outline, Linear, Bulk, Twotone, Broken  
+- 🎯 **Type-safe API** with IDE autocomplete (NEW!)
 - ⚙️ **Full customization**: size, color, width, height, fit, alignment
 - 🔄 **Backward compatibility** with legacy APIs
 - 🚀 **On-demand loading** - icons fetched only when needed
@@ -38,16 +39,19 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  vuesax_flutter_icons: ^1.0.0
+  vuesax_flutter_icons:
+    git:
+      url: https://github.com/Brain-codes/vuesax-flutter-icons.git
+      ref: main  # Important: Use main branch for zero bundle size
 ```
 
 Run `flutter pub get` to install.
 
-**That's it!** No heavy assets bundled - your app size stays minimal! 🎉
+**Result: Only ~50KB added to your app bundle! 🎉**
 
 ## 📖 Usage
 
-### **CDN-Based Icons (Recommended)**
+### **🎯 NEW: Type-Safe API (Recommended)**
 
 ```dart
 import 'package:vuesax_flutter_icons/vuesax_flutter_icons.dart';
