@@ -29,7 +29,7 @@ VuesaxIcon.icon(VuesaxVariant.broken, VuesaxIcons.activity)
 ```dart
 enum VuesaxVariant {
   bold,      // VuesaxVariant.bold
-  outline,   // VuesaxVariant.outline  
+  outline,   // VuesaxVariant.outline
   linear,    // VuesaxVariant.linear
   bulk,      // VuesaxVariant.bulk
   twotone,   // VuesaxVariant.twotone
@@ -52,7 +52,7 @@ class VuesaxIcons {
   static const String calendar = 'calendar';
   static const String message = 'message';
   static const String profile = 'profile';
-  
+
   // UI Actions
   static const String add = 'add';
   static const String edit = 'edit';
@@ -62,7 +62,7 @@ class VuesaxIcons {
   static const String share = 'share';
   static const String download = 'document-download';
   static const String upload = 'document-upload';
-  
+
   // Navigation
   static const String menu = 'menu';
   static const String arrowLeft = 'arrow-left';
@@ -72,7 +72,7 @@ class VuesaxIcons {
   static const String back = 'arrow-left';
   static const String next = 'next';
   static const String previous = 'previous';
-  
+
   // Media
   static const String play = 'play';
   static const String pause = 'pause';
@@ -81,13 +81,13 @@ class VuesaxIcons {
   static const String video = 'video';
   static const String camera = 'camera';
   static const String gallery = 'gallery';
-  
+
   // Communication
   static const String call = 'call';
   static const String email = 'message';
   static const String chat = 'message';
   static const String send = 'send';
-  
+
   // Business
   static const String money = 'money';
   static const String wallet = 'wallet';
@@ -95,7 +95,7 @@ class VuesaxIcons {
   static const String bag = 'bag';
   static const String card = 'card';
   static const String chart = 'chart';
-  
+
   // System
   static const String security = 'security';
   static const String lock = 'lock';
@@ -106,7 +106,7 @@ class VuesaxIcons {
   static const String info = 'info-circle';
   static const String check = 'check';
   static const String close = 'close-circle';
-  
+
   // ... 600+ more icons available!
 }
 ```
@@ -119,7 +119,7 @@ class VuesaxIcons {
 // ❌ Old way (still works, but not recommended)
 VuesaxIcon(
   variant: 'linear',           // String prone to typos
-  iconName: 'home',           // String prone to typos  
+  iconName: 'home',           // String prone to typos
   size: 32,
 )
 
@@ -147,13 +147,13 @@ VuesaxIcon.icon(VuesaxVariant.linear, VuesaxIcons.home)
 
 ## 🎯 **Benefits of Type-Safe API**
 
-| Feature | String-based | Type-safe API |
-|---------|-------------|---------------|
-| **IDE Autocomplete** | ❌ None | ✅ Full support |
-| **Typo Prevention** | ❌ Runtime errors | ✅ Compile-time safety |
-| **Refactoring** | ❌ Manual find/replace | ✅ IDE handles it |
-| **Documentation** | ❌ Need to check docs | ✅ Built-in suggestions |
-| **Code Readability** | ⚠️ Magic strings | ✅ Self-documenting |
+| Feature              | String-based           | Type-safe API           |
+| -------------------- | ---------------------- | ----------------------- |
+| **IDE Autocomplete** | ❌ None                | ✅ Full support         |
+| **Typo Prevention**  | ❌ Runtime errors      | ✅ Compile-time safety  |
+| **Refactoring**      | ❌ Manual find/replace | ✅ IDE handles it       |
+| **Documentation**    | ❌ Need to check docs  | ✅ Built-in suggestions |
+| **Code Readability** | ⚠️ Magic strings       | ✅ Self-documenting     |
 
 ## 📚 **Real-World Examples**
 
@@ -215,10 +215,10 @@ class IconPicker extends StatefulWidget {
       },
     );
   }
-  
+
   final List<String> _popularIcons = [
     VuesaxIcons.home,
-    VuesaxIcons.user, 
+    VuesaxIcons.user,
     VuesaxIcons.heart,
     VuesaxIcons.search,
     VuesaxIcons.settings,
@@ -231,11 +231,13 @@ class IconPicker extends StatefulWidget {
 ## 🚀 **Get Started**
 
 1. **Update your imports**:
+
    ```dart
    import 'package:vuesax_flutter_icons/vuesax_flutter_icons.dart';
    ```
 
 2. **Start using the new API**:
+
    ```dart
    VuesaxIcon.icon(VuesaxVariant.linear, VuesaxIcons.home)
    ```

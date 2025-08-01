@@ -9,11 +9,11 @@ A **revolutionary zero-bundle** Flutter package providing beautiful SVG icons fr
 
 ### 📦 **Bundle Size Comparison**
 
-| Package Type | Bundle Size | Assets | Loading |
-|-------------|-------------|--------|---------|
-| **Traditional Icon Package** | +13.9MB | All bundled | Instant |
-| **🚀 Vuesax Flutter Icons** | **+50KB** | **Zero bundled** | ~100ms |
-| **📊 Savings** | **99.6%** | **13.9MB saved** | Acceptable |
+| Package Type                 | Bundle Size | Assets           | Loading    |
+| ---------------------------- | ----------- | ---------------- | ---------- |
+| **Traditional Icon Package** | +13.9MB     | All bundled      | Instant    |
+| **🚀 Vuesax Flutter Icons**  | **+50KB**   | **Zero bundled** | ~100ms     |
+| **📊 Savings**               | **99.6%**   | **13.9MB saved** | Acceptable |
 
 ### ⚡ **How We Achieved Zero Bundle Size**
 
@@ -26,7 +26,7 @@ A **revolutionary zero-bundle** Flutter package providing beautiful SVG icons fr
 
 - 🌐 **CDN-hosted icons** with automatic caching
 - 📦 **TRUE ZERO bundle impact** - only ~50KB package size vs 13.9MB of assets
-- 🎨 **6 icon variants**: Bold, Outline, Linear, Bulk, Twotone, Broken  
+- 🎨 **6 icon variants**: Bold, Outline, Linear, Bulk, Twotone, Broken
 - 🎯 **Type-safe API** with IDE autocomplete (NEW!)
 - ⚙️ **Full customization**: size, color, width, height, fit, alignment
 - 🔄 **Backward compatibility** with legacy APIs
@@ -42,7 +42,7 @@ dependencies:
   vuesax_flutter_icons:
     git:
       url: https://github.com/Brain-codes/vuesax-flutter-icons.git
-      ref: main  # Important: Use main branch for zero bundle size
+      ref: main # Important: Use main branch for zero bundle size
 ```
 
 Run `flutter pub get` to install.

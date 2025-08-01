@@ -183,17 +183,18 @@ class _VuesaxIconState extends State<VuesaxIcon> {
 
   String? get _resolvedIconId {
     if (widget.iconId != null) return widget.iconId;
-    
+
     // Handle enum variant (preferred)
     if (widget.variantEnum != null && widget.iconName != null) {
-      return VuesaxConfig.getIconId(widget.variantEnum!.value, widget.iconName!);
+      return VuesaxConfig.getIconId(
+          widget.variantEnum!.value, widget.iconName!);
     }
-    
+
     // Handle string variant (legacy)
     if (widget.variant != null && widget.iconName != null) {
       return VuesaxConfig.getIconId(widget.variant!, widget.iconName!);
     }
-    
+
     return null;
   }
 

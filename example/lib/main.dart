@@ -182,7 +182,8 @@ class _IconDemoPageState extends State<IconDemoPage> {
                   size: _iconSize,
                   color: _iconColor,
                   useLocalAssets: !_useNetworkIcons,
-                  key: ValueKey('icon_${_selectedVariant.value}_${_variantExamples[_selectedVariant]}'),
+                  key: ValueKey(
+                      'icon_${_selectedVariant.value}_${_variantExamples[_selectedVariant]}'),
                 ),
               ),
             ),
@@ -207,8 +208,8 @@ class _IconDemoPageState extends State<IconDemoPage> {
                   ),
                   const SizedBox(height: 4.0),
                   Text(
-                    VuesaxConfig.buildCDNUrl(
-                        _selectedVariant.value, _variantExamples[_selectedVariant]!),
+                    VuesaxConfig.buildCDNUrl(_selectedVariant.value,
+                        _variantExamples[_selectedVariant]!),
                     style: TextStyle(
                       fontFamily: 'monospace',
                       fontSize: 11,

@@ -1,5 +1,5 @@
 /// Type-safe icon constants for Vuesax Flutter Icons
-/// 
+///
 /// Use these constants instead of strings for better IDE support and type safety:
 /// ```dart
 /// VuesaxIcon(
@@ -11,7 +11,7 @@
 class VuesaxIcons {
   // Prevent instantiation
   VuesaxIcons._();
-  
+
   // Core Essential Icons
   static const String home = 'home';
   static const String user = 'user';
@@ -112,9 +112,9 @@ class VuesaxIcons {
   static const String warning = 'warning-2';
   static const String wifi = 'wifi';
   static const String work = 'briefcase';
-  
+
   // Extended Icon Set (A-Z organization)
-  
+
   // A
   static const String addItem = 'additem';
   static const String airdrop = 'airdrop';
@@ -137,7 +137,7 @@ class VuesaxIcons {
   static const String attachCircle = 'attach-circle';
   static const String audioSquare = 'audio-square';
   static const String award = 'award';
-  
+
   // B
   static const String backward = 'backward';
   static const String bag2 = 'bag-2';
@@ -165,7 +165,7 @@ class VuesaxIcons {
   static const String building = 'building';
   static const String buildings = 'buildings';
   static const String bus = 'bus';
-  
+
   // C
   static const String cake = 'cake';
   static const String calculator = 'calculator';
@@ -210,7 +210,7 @@ class VuesaxIcons {
   static const String creativeCommons = 'creative-commons';
   static const String crop = 'crop';
   static const String cup = 'cup';
-  
+
   // D
   static const String danger = 'danger';
   static const String designtools = 'designtools';
@@ -238,7 +238,7 @@ class VuesaxIcons {
   static const String driver = 'driver';
   static const String driving = 'driving';
   static const String drop = 'drop';
-  
+
   // E
   static const String edit2 = 'edit-2';
   static const String electricity = 'electricity';
@@ -250,7 +250,7 @@ class VuesaxIcons {
   static const String eraser = 'eraser';
   static const String export = 'export';
   static const String externalDrive = 'external-drive';
-  
+
   // F
   static const String fatrows = 'fatrows';
   static const String favoriteChart = 'favorite-chart';
@@ -267,7 +267,7 @@ class VuesaxIcons {
   static const String forward = 'forward';
   static const String forwardSquare = 'forward-square';
   static const String frame = 'frame';
-  
+
   // G
   static const String galleryAdd = 'gallery-add';
   static const String galleryEdit = 'gallery-edit';
@@ -285,7 +285,7 @@ class VuesaxIcons {
   static const String graph = 'graph';
   static const String gridEdit = 'grid-edit';
   static const String group = 'group';
-  
+
   // H
   static const String happyemoji = 'happyemoji';
   static const String hashtagDown = 'hashtag-down';
@@ -308,19 +308,19 @@ class VuesaxIcons {
   static const String homeWifi = 'home-wifi';
   static const String hospital = 'hospital';
   static const String house = 'house';
-  
+
   // I
   static const String image = 'image';
   static const String import = 'import';
   static const String information = 'information';
   static const String instagram = 'instagram';
-  
+
   // J-K
   static const String judge = 'judge';
   static const String kanban = 'kanban';
   static const String keySquare = 'key-square';
   static const String keyboard = 'keyboard';
-  
+
   // L
   static const String lamp = 'lamp';
   static const String lampCharge = 'lamp-charge';
@@ -347,7 +347,7 @@ class VuesaxIcons {
   static const String login1 = 'login-1';
   static const String logout1 = 'logout-1';
   static const String lovely = 'lovely';
-  
+
   // M
   static const String magicStar = 'magic-star';
   static const String magicpen = 'magicpen';
@@ -418,7 +418,7 @@ class VuesaxIcons {
   static const String musicSquareRemove = 'music-square-remove';
   static const String musicSquareSearch = 'music-square-search';
   static const String musicnote = 'musicnote';
-  
+
   // N
   static const String note = 'note';
   static const String note1 = 'note-1';
@@ -433,7 +433,7 @@ class VuesaxIcons {
   static const String notificationCircle = 'notification-circle';
   static const String notificationFavorite = 'notification-favorite';
   static const String notificationStatus = 'notification-status';
-  
+
   // O-P
   static const String omegaCircle = 'omega-circle';
   static const String omegaSquare = 'omega-square';
@@ -466,7 +466,7 @@ class VuesaxIcons {
   static const String profileTick = 'profile-tick';
   static const String programmingArrow = 'programming-arrow';
   static const String programmingArrows = 'programming-arrows';
-  
+
   // Q-R
   static const String quoteDown = 'quote-down';
   static const String quoteDownCircle = 'quote-down-circle';
@@ -510,7 +510,7 @@ class VuesaxIcons {
   static const String rowHorizontal = 'row-horizontal';
   static const String rowVertical = 'row-vertical';
   static const String ruler = 'ruler';
-  
+
   // S
   static const String safeHome = 'safe-home';
   static const String sagittarius = 'sagittarius';
@@ -588,7 +588,7 @@ class VuesaxIcons {
   static const String subtitle = 'subtitle';
   static const String sun = 'sun';
   static const String sunFog = 'sun-fog';
-  
+
   // T
   static const String tag2 = 'tag-2';
   static const String tagCross = 'tag-cross';
@@ -631,7 +631,7 @@ class VuesaxIcons {
   static const String truckTick = 'truck-tick';
   static const String truckTime = 'truck-time';
   static const String trushSquare = 'trush-square';
-  
+
   // U-V
   static const String undo = 'undo';
   static const String unlimited = 'unlimited';
@@ -665,7 +665,7 @@ class VuesaxIcons {
   static const String volumeMute = 'volume-mute';
   static const String volumeSlash = 'volume-slash';
   static const String volumeUp = 'volume-up';
-  
+
   // W
   static const String wallet1 = 'wallet-1';
   static const String wallet2 = 'wallet-2';

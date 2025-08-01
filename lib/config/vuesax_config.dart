@@ -10,7 +10,8 @@ class VuesaxConfig {
   /// GitHub repository information
   static const String githubUsername = 'Brain-codes';
   static const String repositoryName = 'vuesax-flutter-icons';
-  static const String branch = 'assets-only';  // Assets stored in separate branch
+  static const String branch =
+      'assets-only'; // Assets stored in separate branch
 
   /// Base CDN URL for icons (using jsDelivr for better performance)
   static const String baseCDN =
